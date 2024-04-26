@@ -1,4 +1,4 @@
-package hello.thymeleaf.bsic;
+package hello.thymeleaf.basic;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -119,6 +118,12 @@ public class BasicController {
     public String each(Model model) {
         addUsers(model);
         return "basic/each";
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
     }
 
     private void addUsers(Model model) {
