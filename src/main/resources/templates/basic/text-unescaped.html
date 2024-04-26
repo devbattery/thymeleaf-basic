@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Title</title></head>
+<body>
+
+<h1>text vs utext</h1>
+<ul>
+
+<!--    escape 처리 O-->
+    <li>th:text = <span th:text="${data}"></span></li>
+<!--    escape 처리 X-->
+    <li>th:utext = <span th:utext="${data}"></span></li>
+
+</ul>
+
+<h1><span th:inline="none">[[...]] vs [(...)]</span></h1>
+
+<ul>
+
+<!--    escape 처리 O-->
+    <li><span th:inline="none">[[...]] = </span>[[${data}]]</li>
+<!--    escape 처리 X-->
+    <li><span th:inline="none">[(...)] = </span>[(${data})]</li>
+
+</ul>
+
+</body>
+</html>
