@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.boot.Banner.Mode;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,15 @@ public class BasicController {
         model.addAttribute("userMap", userMap);
 
         return "basic/variable";
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class User {
+
+        private String username;
+        private int age;
+
     }
 
     @GetMapping("/basic-objects")
@@ -93,14 +103,11 @@ public class BasicController {
         return "basic/literal";
     }
 
-    @Data
-    @AllArgsConstructor
-    static class User {
-
-
-        private String username;
-        private int age;
-
+    @GetMapping("/operation")
+    public String operation(Model model) {
+        model.addAttribute("nullData", null);
+        model.addAttribute("data", "Spring!");
+        return "basic/operation";
     }
 
 }
